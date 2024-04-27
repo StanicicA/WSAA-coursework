@@ -20,5 +20,6 @@ data = response.json()
 #print(data)
 current =  data ["current"]
 #print (currenttemp)
-currenttemp = current ['temperature_2m']
-print (currenttemp)
+currenttemp = current ["temperature_2m"]
+currentwind = current ["wind_speed_10m"]
+print (currenttemp, currentwind)
