@@ -1,12 +1,18 @@
-import requests
-import csv
-from xml.dom.minidom import parseString
-url = "http://api.irishrail.ie/realtime/realtime.asmx/getCurrentTrainsXML"
-page = requests.get(url)
-doc = parseString(page.content)
-# check it works
-print (doc.toprettyxml()) #output to console comment this out once you know it works
-# if I want to store the xml in a file. You can comment this out later
-with open("trainxml.xml","w") as xmlfp:
-doc.writexml(xmlfp)
+#Assignment - Using the URL below
+# https://api.open-meteo.com/v1/forecast?latitude=53.82&longitude=-9.5&current=temperature_2m
+# Write a python program called currentweather.py that will print out the current temperature on the console 
 
+# import required modules
+import requests, json
+ 
+# base_url variable to store url
+url = "https://api.open-meteo.com/v1/forecast?latitude=53.82&longitude=-9.5&current=temperature_2m,wind_speed_10m"
+ 
+# get method of requests module
+# return response object
+response = requests.get(url)
+ print (response.json())
+# json method of response object 
+# convert json format data into
+# python format data
+x = response.json()
